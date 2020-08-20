@@ -31,6 +31,16 @@ geocoding('varansi',(error,data)=>
         console.log(data.location);
        console.log(data.latitude);
        console.log(data.longitude);
+       forcast(data.latitude,data.longitude,(error,temp)=>
+       {
+           if(error)
+           {
+               console.log(error);
+           }
+           else{
+               console.log(temp.temperature);
+           }
+       })
        
     }
     

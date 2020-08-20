@@ -32,4 +32,4 @@ console.log(WeatherStackUrl);
         }
 
 
-        module.exports=forcast;
+module.exports=forcast;
