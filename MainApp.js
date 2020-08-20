@@ -12,16 +12,7 @@ const geocoding=require('./util/geocoding')
 const forcast=require('./util/forcast')
 
 
-
-
-
-
-
-
-
-
-
-geocoding('varansi',(error,data)=>
+geocoding('mumbai',(error,data)=>
 {
     if(error)
     {
@@ -38,7 +29,7 @@ geocoding('varansi',(error,data)=>
                console.log(error);
            }
            else{
-               console.log(temp.temperature);
+               console.log(temp);
            }
        })
        

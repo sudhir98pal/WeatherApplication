@@ -5,8 +5,8 @@ const AccessKeyOfWeatherStack='52ea8820847be1b92f7056b7d14bd3fb';
 const WeatherStackHttp='http://api.weatherstack.com/current'
 
 const forcast=(lat,log,callback)=>{
-const WeatherStackUrl=WeatherStackHttp+'?access_key='+AccessKeyOfWeatherStack+'&query='+lat+','+log+'&units=m'
-console.log(WeatherStackUrl);
+const WeatherStackUrl=WeatherStackHttp+'?access_key='+AccessKeyOfWeatherStack+'&query='+log+','+lat+'&units=m'
+
              request({url:WeatherStackUrl,json:true},(error,response)=>
              {
                 if(error)
@@ -21,7 +21,13 @@ console.log(WeatherStackUrl);
                 else{
             const currentdata=response.body.current;
            callback(undefined,{
-               temperature:currentdata.temperature
+               temperature:currentdata.temperature,
+               time:response.body.location.localtime,
+               pressure:currentdata.pressure,
+               precipitation:currentdata.precip,
+               wind_direction:currentdata.wind_dir
+
+
            })
             
                 }
