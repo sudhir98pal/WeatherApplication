@@ -32,7 +32,7 @@ geocoding(Addresh,(error,data)=>
         console.log(chalk.bgRed.underline.bold(error));
         return ;
     }
-    
+     
 
     console.log(chalk.bold.magenta.underline(data.location+' Has '))
     console.log(chalk.bold.green.underline('   CO-ORDINATES  '))

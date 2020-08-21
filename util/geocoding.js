@@ -15,8 +15,9 @@ const geocoding=(addresh ,callback)=>
 const MapBoxUrl=MapBoxHttp+encodeURIComponent(addresh)+'.json?access_token='+AccessKeyOfMapBox+'&limit='+limit;
 // json(in small) is true to set parse data in json 
 
-request({url:MapBoxUrl,json:true},(error,response)=>
+request({url:MapBoxUrl,json:true},(error,{body})=>
 {
+    // By object destructuring maked respose.body to body
     if(error)
     {
        
@@ -25,18 +26,23 @@ request({url:MapBoxUrl,json:true},(error,response)=>
     }
     else{
 
-if(response.body.features.length==0)
+if(body.features.length==0)
 {
     callback('-----Can Not Find Entered Location !--------',undefined);
 }
 else
 {
 
+ // object destructured
+ // from body.features to features
+    const {features}=body
 
 callback(undefined,{
-    latitude:response.body.features[0].center[0],
-    longitude:response.body.features[0].center[1],
-    location:response.body.features[0].place_name
+
+   
+    latitude:features[0].center[0],
+    longitude:features[0].center[1],
+    location:features[0].place_name
 });
 
 }

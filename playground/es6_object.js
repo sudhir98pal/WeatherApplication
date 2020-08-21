@@ -44,7 +44,7 @@ const product=
 // console.log(price);
 // console.log(stock);
 // Also we can relabel it
-//const{price:pricess,stock:stockss}=prodcut;
+//const{price:pricess,stock:stockss}=product;
 //console.log(pricess);
 //console.log(stockss);
 // Also can define new variable like quality
