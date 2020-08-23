@@ -1,38 +1,19 @@
-const express=require('express');
-const app=express();
-const chalk=require('chalk');
+const express = require('express');
+
+const app = express();
 // statement creates a new express application for you
 
+const path = require('path');
+const htmlfilepath = path.join(__dirname, '../public');
 
-app.get('',(req,res)=>
+app.use(express.static(htmlfilepath));
+
+ 
+app.get('/weather', (req, res) => 
 {
-
-    res.send('Hello Sudhir from Express')
+    rapp.use(express.static(htmlfilepath));
 })
 
-app.get('/help',(req,res)=>
-{
-    res.send('Welcome to help Page Sudhir Pal');
-})
-
-app.get('/about',(req,res)=>
-{
-    res.send(('Hello your are on about page'));
-
-})
-
-app.get('/about',(req,res)=>
-{
-    res.send(('Hello your are on about page'));
-
-})
-
-app.get('/weather',(req,res)=>
-{
-    res.send('your weather is .....')
-})
-
-app.listen(3000,()=>
-{
+app.listen(3000, () => {
     console.log('server is up on port 3000');
 });
