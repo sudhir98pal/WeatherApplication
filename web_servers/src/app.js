@@ -11,6 +11,12 @@ app.set('view engine','hbs');
 const path = require('path');
 const htmlfilepath = path.join(__dirname, '../public');
 
+
+
+// we can also can rename views folder as below
+//const viewspath=path.join(__dirname,'../folder_name');
+//app.set('views',viewspath);
+
 app.use(express.static(htmlfilepath));
 
 
@@ -26,10 +32,30 @@ app.get('',(req,res)=>
     // that is come out of src :-> this makes views -> index.hbs rendering possible 
 })
 
+app.get('/about',(req,res)=>
+{
+    res.render('about',{
+        title:'About Me',
+        name:'My name Is Sudhir Pal'
+    })
+});
+app.get('/help', (req, res) => 
+{
+    res.render('help',
+    {
+        title:'Welcome To Help Page',
+        body:'This Is A Weather Application You Can Search Any Valid Loactions Weather'
+
+
+    })
+})
  
 app.get('/weather', (req, res) => 
 {
-    rapp.use(express.static(htmlfilepath));
+    res.render('weather',{
+        title:'Weather',
+        location:'Jaunpur'
+    })
 })
 
 app.listen(3000, () => {
