@@ -1,21 +1,37 @@
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
+    <title>
+        Home
+    </title>
     <link rel="stylesheet" href="/css/styles.css">
-       <link rel="icon" href="/Images/cloud.png">
-    <script src="/js/app.js">
+     <link rel="icon" href="/Images/cloud.png">
+    <style>
+        h1 {
+            text-align: center;
+        }
 
-        </script>
+        p {
+            text-align: center;
+        }
+    </style>
+
 </head>
-<body class="main">
-    {{>headers}}
 
-<p>
-    Created by {{name}}
-</p>
+<body bgcolor="teal" class="firstpage">
+
+{{>headers}}
+  
+    <p>
+        
+        {{body}}
+    </p>
+
+    <footer>
+    {{>footers}}
+</footer>
+
 </body>
 
 </html>

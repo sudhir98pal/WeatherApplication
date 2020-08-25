@@ -29,7 +29,7 @@ app.use(express.static(htmlfilepath));
 app.get('', (req, res) => {
     res.render('index',
         {
-            title: 'Weather App',
+            title: 'How s The Weather Today',
             name: 'Sudhir Pal'
         });
     // to use render here
