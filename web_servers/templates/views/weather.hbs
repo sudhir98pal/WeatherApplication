@@ -24,13 +24,32 @@
 </head>
 
 <body class>
-    <div class>
-{{>headers}}
-
+    <div>
+    {{>headers}}
     <p>
-        {{location}}
+   <h1> {{location}} </h1> 
 
      </p>
+
+      
+     <h1 class="weathervalues" >Date And Time : {{time}} </h1>
+     
+
+    
+    <h1 class="weathervalues"> Temperature : {{temperature}} </h1>
+
+    <h1 class="weathervalues"> Precipitation Chance : {{precipitation}} % </h1>
+             
+    <h1 class="weathervalues"> Latitude:  {{latitude}} </h1>
+    <h1 class="weathervalues"> Longitude: {{longitude}}</h1>
+               
+
+         <h1 class="weathervalues">
+              WindDirection : {{windDirection}}
+         </h1>
+            
+    
+
     </div>
     
    

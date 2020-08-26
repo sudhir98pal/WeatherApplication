@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('hbs')
 
-
+const gecode=require('./geocoding');
+const forcast=require('./forcast');
 const app = express();
 // statement creates a new express application for you
 
@@ -11,6 +12,7 @@ app.set('view engine', 'hbs');
 // it is use to create express dynamic handlebars templates
 
 const path = require('path');
+
 const htmlfilepath = path.join(__dirname, '../public');
 
 
@@ -54,10 +56,61 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    res.render('weather', {
+    if(!req.query.search)
+    {
+res.send({
+    error:'Addresh is Missing !',
+    Description:'Please Enter Valid Adrresh to search its Weather as ?search=Addresh '
+
+});
+
+        return;
+    }
+
+    gecode(req.query.search,(error,data)=>
+    {
+
+        if(error)
+        {
+            res.send({error})
+            return ;
+        }
+
+        const mlocation=data.location;
+        const mlatitude=data.latitude;
+        const mlongitude=data.longitude;
+        forcast(mlatitude,mlongitude,(error,forcastData)=>
+    {
+        if(error)
+        {
+            res.send({error})
+            return ;
+        }
+
+
+
+ res.render('weather', 
+    {
         title: 'Weather',
-        location: 'Jaunpur'
+        latitude:mlongitude,
+        longitude:mlatitude,
+        location:mlocation,
+        temperature:forcastData.temperature,
+        time:forcastData.time,
+        precipitation:forcastData.precipitation*10,
+        windDirection:forcastData.wind_direction
+
+
+
+
     })
+
+    
+    })
+
+    })
+
+   
 })
 
 // If Nothing Matches this Webpage is called
