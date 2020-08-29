@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-<title>
-    Weather
+    <title>
+        Weather
     </title>
-       <link rel="icon" href="/Images/cloud.png">
+    <link rel="icon" href="/Images/cloud.png">
 
     <style>
         body {
@@ -15,7 +16,7 @@
             background-size: cover;
         }
 
-      
+
 
         p {
             text-align: center;
@@ -23,45 +24,44 @@
     </style>
 </head>
 
-<body class>
+<body class="weathervalues">
     <div>
-    {{>headers}}
-    <p>
-   <h1> {{location}} </h1> 
+        {{>headers}}
 
-     </p>
+        <p>
+        
 
-      
-     <h1 class="weathervalues" >Date And Time : {{time}} </h1>
-     
+        </p>
+        <form>
+            <input placeholder="Enter Location">
+            <button>
+                Search Weather
+            </button>
+        </form>
+<h1 id="location"></h1>
+        <h1 id="dateAndTime"></h1>
+        <h1 id="temperature"></h1>
+        <h1 id="precipitationChance"></h1>
+        <h1 id="latitude"></h1>
+        <h1 id="longitude"></h1>
+        <h1 id="windDirection"></h1>
 
-    
-    <h1 class="weathervalues"> Temperature : {{temperature}} </h1>
 
-    <h1 class="weathervalues"> Precipitation Chance : {{precipitation}} % </h1>
-             
-    <h1 class="weathervalues"> Latitude:  {{latitude}} </h1>
-    <h1 class="weathervalues"> Longitude: {{longitude}}</h1>
-               
-
-         <h1 class="weathervalues">
-              WindDirection : {{windDirection}}
-         </h1>
-            
-    
 
     </div>
-    
-   
-    
+
+    <!comment this must be After Form to Process Entered Location>
+        <script src='/js/MyApp.js'>
+        </script>
 
 </body>
 
- </p class="bottom_p">
+</p class="bottom_p">
 
-    <p >
-    <p>Created By Sudhir Pal</p>
-    <p>Gmail: sudhirnandlalpal@gmail.com</p>
+<p>
+<p>Created By Sudhir Pal</p>
+<p>Gmail: sudhirnandlalpal@gmail.com</p>
 
-    </p>
+</p>
+
 </html>

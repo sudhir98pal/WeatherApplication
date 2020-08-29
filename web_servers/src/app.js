@@ -29,7 +29,7 @@ app.use(express.static(htmlfilepath));
 
 
 app.get('', (req, res) => {
-    res.render('index',
+    res.render('weather',
         {
             title: 'How s The Weather Today',
             name: 'Sudhir Pal'
@@ -59,7 +59,7 @@ app.get('/weather', (req, res) => {
     if(!req.query.search)
     {
 res.send({
-    error:'Addresh is Missing !',
+    error:'Please Enter Valid Addresh',
     Description:'Please Enter Valid Adrresh to search its Weather as ?search=Addresh '
 
 });
@@ -67,7 +67,7 @@ res.send({
         return;
     }
 
-    gecode(req.query.search,(error,data)=>
+    gecode(req.query.search,(error,data={})=>
     {
 
         if(error)
@@ -89,18 +89,16 @@ res.send({
 
 
 
- res.render('weather', 
+ res.send(
     {
-        title: 'Weather',
+        title:'Weather',
         latitude:mlongitude,
         longitude:mlatitude,
         location:mlocation,
         temperature:forcastData.temperature,
         time:forcastData.time,
-        precipitation:forcastData.precipitation*10,
+        precipitation:forcastData.precipitation,
         windDirection:forcastData.wind_direction
-
-
 
 
     })

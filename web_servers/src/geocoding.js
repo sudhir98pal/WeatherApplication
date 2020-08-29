@@ -15,20 +15,20 @@ const geocoding=(addresh ,callback)=>
 const MapBoxUrl=MapBoxHttp+encodeURIComponent(addresh)+'.json?access_token='+AccessKeyOfMapBox+'&limit='+limit;
 // json(in small) is true to set parse data in json 
 
-request({url:MapBoxUrl,json:true},(error,{body})=>
+request({url:MapBoxUrl,json:true},(error,{body}={})=>
 {
     // By object destructuring maked respose.body to body
     if(error)
     {
        
         //------LOW LEVEL ERROR----------
-        callback('----Unable To Connect To Internet !-----',undefined);
+        callback(' Unable To Connect To Internet ! ',undefined);
     }
     else{
 
 if(body.features.length==0)
 {
-    callback('-----Can Not Find Entered Location !--------',undefined);
+    callback(' Can Not Find Entered Location !',undefined);
 }
 else
 {
