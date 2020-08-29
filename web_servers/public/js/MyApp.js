@@ -13,19 +13,19 @@ const mlongitude=document.querySelector('#longitude');
 const mwindDirection=document.querySelector('#windDirection');
 
 
-
 const weatherInput = document.querySelector('form');
 const search = document.querySelector('input');
 weatherInput.addEventListener('submit', (e) => {
     e.preventDefault();
     // prevent us from refreshing browser each time
-
+    mlocation.textContent='Searching......'
     const Addresh = search.value;
     console.log(Addresh);
     console.log('---testing--');
     fetch('http://localhost:3000/weather?search='+Addresh).then((response) => {
 
-        console.log(response);
+
+       
         response.json().then((data) => {
             if (data.error) {
                 mlocation.textContent=data.error;
