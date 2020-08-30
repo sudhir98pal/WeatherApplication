@@ -121,3 +121,36 @@ header a{
     
 }
 
+input{
+
+    border:1px solid #cccccc;
+    background: #888888;
+    padding:8px;
+    color: white;
+    border-radius: 3px;
+}
+
+button
+{
+    cursor: pointer;
+    border: 1px solid #888888;
+    background:#4CAF50;
+    color:white;
+    padding:8px;
+border-radius: 3px;
+
+
+}
+
+::placeholder
+{
+
+    color: white;
+    opacity: 1;
+}
+
+.resume
+{
+    color: blanchedalmond;
+    text-align: center;
+}
