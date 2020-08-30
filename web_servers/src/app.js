@@ -6,6 +6,9 @@ const forcast=require('./forcast');
 const app = express();
 // statement creates a new express application for you
 
+
+const port=process.env.PORT||3000
+
 app.set('view engine', 'hbs');
 // setting app's view engine with hbs
 // view engine is case and space sensitive
@@ -121,6 +124,6 @@ app.get('*',(req,res)=>
 
     })
 })
-app.listen(3000, () => {
-    console.log('server is up on port 3000');
+app.listen(port, () => {
+    console.log('server is up on port '+port);
 });

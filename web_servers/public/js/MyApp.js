@@ -29,7 +29,7 @@ weatherInput.addEventListener('submit', (e) => {
     const Addresh = search.value;
     console.log(Addresh);
     console.log('---testing--');
-    fetch('http://localhost:3000/weather?search='+Addresh).then((response) => {
+    fetch('/weather?search='+Addresh).then((response) => {
 
 
        
